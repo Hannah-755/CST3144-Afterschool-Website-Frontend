@@ -75,7 +75,7 @@
             <div id="classContainer">
                 <div v-for="lesson in reorder" :key="lesson.id">
                     <div class="lessonBox">
-                        <image v-bind:src="'images/'+lesson.subject+'.png'" class="lessonImage"></image>
+                        <image v-bind:src="'./images/'+lesson.subject+'.png'" class="lessonImage"></image>
                         <div class="lessonHead">
                             <i v-bind:class="lesson.icon"></i>
                             <h3>{{lesson.subject}}</h3>
