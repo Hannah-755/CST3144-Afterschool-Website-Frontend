@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>After School Lessons</title>
     <!--FUCK ask miss if using google font apis is ok-->
+    <!--FUCK X2 ask if wee're supposed to use CORS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
@@ -100,6 +101,8 @@
                     </div>
                 </div>
             </div>
+
+            <button @click="test">Please?</button>
         </div>
 
         <div v-else id="checkoutContainer">
@@ -278,6 +281,19 @@
                     alert("Form submitted");
                     this.cart=[];
                     this.showProduct=false;
+                },
+                test:async function() 
+                {
+                    let response=await fetch("http://localhost:3000/");
+                    if (response.ok)
+                    {
+                        console.log("omfg this shit is fucking magic what the fuck");
+                        console.log(await response.json());
+                    }
+                    else
+                    {
+                        console.log(":(");
+                    }
                 }
             },
             computed:
