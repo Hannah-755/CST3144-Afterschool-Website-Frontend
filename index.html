@@ -101,8 +101,6 @@
                     </div>
                 </div>
             </div>
-
-            <button @click="test">Please?</button>
         </div>
 
         <div v-else id="checkoutContainer">
@@ -276,24 +274,16 @@
                     );
                     this.canOrder=!flagged;
                 },
-                submitForm:function()
+                submitForm:async function()
                 {
                     alert("Form submitted");
+                    let response=await fetch("http://localhost:3000/order",
+                    {
+                        method: 'POST',
+                        body: this.cart
+                    });
                     this.cart=[];
                     this.showProduct=false;
-                },
-                test:async function() 
-                {
-                    let response=await fetch("http://localhost:3000/");
-                    if (response.ok)
-                    {
-                        console.log("omfg this shit is fucking magic what the fuck");
-                        console.log(await response.json());
-                    }
-                    else
-                    {
-                        console.log(":(");
-                    }
                 }
             },
             computed:
